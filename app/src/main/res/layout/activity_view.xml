@@ -7,4 +7,108 @@
     android:layout_height="match_parent"
     tools:context=".ViewActivity">
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCompartir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 2. Contenedor interno donde colocarás todas las vistas (LinearLayout vertical) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <ImageView
+                android:id="@+id/imgFoto"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_person_24" />
+
+            <TextView
+                android:id="@+id/txtNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                tools:text="Tu Nombre" />
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_gravity="center"
+                tools:text="Desarrollador Android" />
+
+            <!-- Encabezado Experiencia -->
+            <TextView
+                android:id="@+id/labelExperiencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                tools:text="Experiencia" />
+
+            <TextView
+                android:id="@+id/txtExperiencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="• Sin datos" />
+
+            <!-- Encabezado Educación -->
+            <TextView
+                android:id="@+id/labelEstudios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                tools:text="Educación" />
+
+            <TextView
+                android:id="@+id/txtEstudios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="• Sin datos" />
+
+            <!-- Encabezado Skills -->
+            <TextView
+                android:id="@+id/labelSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                tools:text="Skills" />
+
+            <TextView
+                android:id="@+id/txtSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="• Sin datos" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnCompartir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Compartir CV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
