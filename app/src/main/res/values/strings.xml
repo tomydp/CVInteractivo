@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CVInteractivo</string>
+    <string name="nombre_completo">Nombre Completo</string>
+    <string name="titulo_profesional">Título Profesional</string>
+    <string name="continuar">Continuar</string>
+    <string name="foto_perfil">Seleccionar foto de perfil</string>
 </resources>
