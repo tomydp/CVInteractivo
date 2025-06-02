@@ -1,7 +1,12 @@
 plugins {
+    // Si estás usando Version Catalog (libs.…), conservas estos alias
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    // Kotlin Parcelize en Kotlin DSL usa paréntesis y comillas dobles
     id("kotlin-parcelize")
+
+    // Este id también debe ir con paréntesis y comillas
 }
 
 android {
@@ -19,7 +24,7 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -27,27 +32,38 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
 }
 
 dependencies {
-
+    // Dependencias referenciadas en tu Version Catalog (libs.xxx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Si necesitas versiones explícitas, usa siempre comillas dobles y paréntesis:
     implementation("androidx.activity:activity-ktx:1.9.0")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
+
+    // PARA RecyclerView (asegúrate de no duplicar versiones)
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
+
+    // (Opcional) CardView, si usas CardView en tus ítems:
+    implementation("androidx.cardview:cardview:1.0.0")
 }
