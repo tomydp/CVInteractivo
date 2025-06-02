@@ -55,10 +55,10 @@
                 android:id="@+id/labelExperiencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Experiencia"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginTop="24dp"
-                tools:text="Experiencia" />
+                android:layout_marginTop="24dp" />
 
             <TextView
                 android:id="@+id/txtExperiencias"
@@ -71,10 +71,10 @@
                 android:id="@+id/labelEstudios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Educación"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginTop="24dp"
-                tools:text="Educación" />
+                android:layout_marginTop="24dp" />
 
             <TextView
                 android:id="@+id/txtEstudios"

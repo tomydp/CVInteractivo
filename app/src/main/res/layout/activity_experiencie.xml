@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExperiencieActivity">
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_experiencia"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editTextEmpresa"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="@string/hint_empresa"
+            android:inputType="textCapWords"
+            android:autofillHints="companyName" />
+
+        <EditText
+            android:id="@+id/editTextPuesto"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="@string/hint_puesto"
+            android:inputType="textCapWords"
+            android:autofillHints="jobTitle"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/editTextAnios"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="@string/hint_anios"
+            android:inputType="number"
+            android:autofillHints="yearsOfExperience"
+            android:layout_marginTop="12dp" />
+
+        <Button
+            android:id="@+id/buttonContinuar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/continuar"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</ScrollView>
