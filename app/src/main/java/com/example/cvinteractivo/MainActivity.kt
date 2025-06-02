@@ -22,63 +22,45 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonContinuar: Button
     private var uriFoto: Uri? = null
 
-    // Launcher para abrir la galería y seleccionar imagen
+    // Launcher para abrir la galería
     private val seleccionarImagen =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            if (uri != null) {
-                uriFoto = uri
-                imageViewFoto.setImageURI(uri)
+            uri?.let {
+                uriFoto = it
+                imageViewFoto.setImageURI(it)
             }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // enableEdgeToEdge si lo usas (opcional)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Ajuste de insets (opcional si usas Edge-to-Edge)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val sysBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(sysBars.left, sysBars.top, sysBars.right, sysBars.bottom)
             insets
         }
 
-        // 1) Referencias a las vistas
-        editTextNombre = findViewById(R.id.editTextNombre)
-        editTextTitulo = findViewById(R.id.editTextTitulo)
+        editTextNombre  = findViewById(R.id.editTextNombre)
+        editTextTitulo  = findViewById(R.id.editTextTitulo)
         imageViewFoto   = findViewById(R.id.imageViewFoto)
         buttonContinuar = findViewById(R.id.buttonContinuar)
 
-        // 2) Al tocar la ImageView, abrimos la galería
-        imageViewFoto.setOnClickListener {
-            // Filtramos únicamente imágenes ("image/*")
-            seleccionarImagen.launch("image/*")
-        }
+        imageViewFoto.setOnClickListener { seleccionarImagen.launch("image/*") }
 
-        // 3) Al tocar “Continuar”, validamos datos y enviamos CV a ViewActivity
         buttonContinuar.setOnClickListener {
             val nombre = editTextNombre.text.toString().trim()
             val titulo = editTextTitulo.text.toString().trim()
 
-
-            if (nombre.isEmpty() || titulo.isEmpty()) {
-                Toast.makeText(
-                    this,
-                    "Por favor completa todos los campos y selecciona una foto.",
-                    Toast.LENGTH_SHORT
-                ).show()
+            if (nombre.isEmpty() || titulo.isEmpty() || uriFoto == null) {
+                Toast.makeText(this, "Completa todos los campos y selecciona foto", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Construimos el objeto CV (solo nombre, título y fotoUri)
-            val cv = CV(
-                nombre = nombre,
-                titulo = titulo,
-                fotoUri = uriFoto.toString()
-            )
+            // Creamos el CV con los datos básicos
+            val cv = CV(nombre = nombre, titulo = titulo, fotoUri = uriFoto.toString())
 
-            // Enviamos el CV parcelable a ViewActivity
             val intent = Intent(this, ExperiencieActivity::class.java).apply {
                 putExtra("cv_data", cv)
             }
