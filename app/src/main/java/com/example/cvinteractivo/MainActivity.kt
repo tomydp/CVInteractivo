@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity() {
             val nombre = editTextNombre.text.toString().trim()
             val titulo = editTextTitulo.text.toString().trim()
 
-            // Validamos que el usuario haya completado todo
-            if (nombre.isEmpty() || titulo.isEmpty() || uriFoto == null) {
+
+            if (nombre.isEmpty() || titulo.isEmpty()) {
                 Toast.makeText(
                     this,
                     "Por favor completa todos los campos y selecciona una foto.",
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             )
 
             // Enviamos el CV parcelable a ViewActivity
-            val intent = Intent(this, ViewActivity::class.java).apply {
+            val intent = Intent(this, ExperiencieActivity::class.java).apply {
                 putExtra("cv_data", cv)
             }
             startActivity(intent)
