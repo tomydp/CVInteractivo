@@ -1,61 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- Contenedor vertical con texto y botón -->
     <LinearLayout
-        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Título de la sección -->
         <TextView
-            android:id="@+id/tvTituloExperiencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Experiencia Laboral"
+            android:text="@string/titulo_experiencia"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:paddingBottom="16dp" />
 
-        <!-- Empresa -->
-        <TextView
-            android:id="@+id/tvEmpresa"
+        <EditText
+            android:id="@+id/editTextEmpresa"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Empresa: "
-            android:textSize="18sp"
-            android:paddingTop="8dp" />
+            android:layout_height="56dp"
+            android:hint="@string/hint_empresa"
+            android:inputType="textCapWords"
+            android:autofillHints="companyName" />
 
-        <!-- Puesto -->
-        <TextView
-            android:id="@+id/tvPuesto"
+        <EditText
+            android:id="@+id/editTextPuesto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Puesto: "
-            android:textSize="18sp"
-            android:paddingTop="4dp" />
+            android:layout_height="56dp"
+            android:hint="@string/hint_puesto"
+            android:inputType="textCapWords"
+            android:autofillHints="jobTitle"
+            android:layout_marginTop="12dp" />
 
-        <!-- Años trabajados -->
-        <TextView
-            android:id="@+id/tvAnios"
+        <EditText
+            android:id="@+id/editTextAnios"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Años: "
-            android:textSize="18sp"
-            android:paddingTop="4dp" />
+            android:layout_height="56dp"
+            android:hint="@string/hint_anios"
+            android:inputType="number"
+            android:autofillHints="yearsOfExperience"
+            android:layout_marginTop="12dp" />
 
-        <!-- Botón para volver a la pantalla anterior -->
         <Button
-            android:id="@+id/buttonVolver"
+            android:id="@+id/buttonContinuar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Volver"
+            android:text="@string/continuar"
             android:layout_marginTop="24dp" />
 
     </LinearLayout>

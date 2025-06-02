@@ -4,4 +4,11 @@
     <string name="titulo_profesional">Título Profesional</string>
     <string name="continuar">Continuar</string>
     <string name="foto_perfil">Seleccionar foto de perfil</string>
+
+    <!-- Pantalla 2: Experiencia -->
+    <string name="titulo_experiencia">Experiencia Laboral</string>
+    <string name="hint_empresa">Empresa</string>
+    <string name="hint_puesto">Puesto</string>
+    <string name="hint_anios">Años trabajados</string>
 </resources>
+
