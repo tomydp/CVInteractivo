@@ -10,5 +10,5 @@ import kotlinx.parcelize.Parcelize
 data class Experiencia(
     val empresa: String,
     val puesto: String,
-    val años: String
+    val anios: String
 ) : Parcelable
