@@ -1,10 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EducationSkillsActivity">
+    android:fitsSystemWindows="true"
+    android:padding="0dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 1) Toolbar superior con el título de la pantalla -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarEducation"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:title="@string/education_skills_title"
+        android:titleTextColor="@android:color/white" />
+
+    <!-- 2) Contenedor principal (debajo de la Toolbar) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp">
+
+        <!-- 2.1) Encabezado de sección -->
+        <TextView
+            android:id="@+id/textViewSectionTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_agregar_estudio"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 2.2) EditText: Institución -->
+        <EditText
+            android:id="@+id/editTextInstitucion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_institucion"
+            android:inputType="textPersonName" />
+
+        <!-- 2.3) EditText: Título Obtenido -->
+        <EditText
+            android:id="@+id/editTextTituloEstudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_titulo_estudio"
+            android:inputType="text"
+            android:layout_marginTop="12dp" />
+
+        <!-- 2.4) EditText: Años cursados -->
+        <EditText
+            android:id="@+id/editTextAniosEstudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_anios_estudio"
+            android:inputType="text"
+            android:layout_marginTop="12dp" />
+
+        <!-- 2.5) Botón “Continuar” -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonContinuarEducacion"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/continuar"
+            android:layout_marginTop="16dp"
+            app:cornerRadius="4dp" />
+
+        <!-- 2.6) Línea divisoria -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <!-- 2.7) Contenedor (ScrollView > LinearLayout) donde mostraremos cada estudio agregado en tiempo real -->
+        <ScrollView
+            android:id="@+id/scrollViewEstudios"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:clipToPadding="false">
+
+            <!-- LinearLayout vertical: contenedor dinámico de TextViews de “Estudio” -->
+            <LinearLayout
+                android:id="@+id/linearContainerEstudios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

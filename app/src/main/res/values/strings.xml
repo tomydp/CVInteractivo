@@ -10,5 +10,22 @@
     <string name="hint_empresa">Empresa</string>
     <string name="hint_puesto">Puesto</string>
     <string name="hint_anios">Años trabajados</string>
+
+    <!-- Títulos y encabezados -->
+    <string name="education_skills_title">Educación &amp; Skills</string>
+    <string name="section_agregar_estudio">Agregar Nuevo Estudio</string>
+
+    <!-- Hints para los EditText -->
+    <string name="hint_institucion">Institución</string>
+    <string name="hint_titulo_estudio">Título Obtenido</string>
+    <string name="hint_anios_estudio">Años (Ej: 2019 - 2023)</string>
+
+    <!-- Texto de botones -->
+    <string name="guardar_estudio">Guardar Estudio</string>
+
+    <!-- Mensajes de validación -->
+    <string name="error_campos_vacios">Por favor completa todos los campos del estudio</string>
+    <string name="error_sin_estudios">Debes agregar al menos un estudio para continuar</string>
+    <string name="error_datos_previos">No se recibieron datos previos correctamente</string>
 </resources>
 
